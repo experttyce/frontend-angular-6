@@ -12,7 +12,7 @@ import { HomeComponent } from './home/home.component';
 // Array  de rutas - configuracion
 
 const appROUTES: Routes = [
-    { path: ' ', component: HomeComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'error', component: ErrorComponent },
