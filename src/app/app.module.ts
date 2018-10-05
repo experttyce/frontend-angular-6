@@ -6,29 +6,36 @@ import { RouterModule } from '@angular/router';
 
 // Rutas
 
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { routing, AppRoutingProviders } from './app.routes';
 import { NavbarModule } from './shared/navbar/navbar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { SidebarModule } from './sidebar/sidebar/sidebar.module';
+
+// importar servicios
+
+
+
 
 // importar componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
+   //  AppRoutingModule,
     RouterModule,
     HttpModule,
     routing,
