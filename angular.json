@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "DashboardSeko": {
+=======
+    "AngularDashboard": {
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +17,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/DashboardSeko",
+=======
+            "outputPath": "dist/AngularDashboard",
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +58,30 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "DashboardSeko:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "DashboardSeko:build:production"
+=======
+            "browserTarget": "AngularDashboard:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "AngularDashboard:build:production"
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "DashboardSeko:build"
+=======
+            "browserTarget": "AngularDashboard:build"
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
           }
         },
         "test": {
@@ -95,7 +115,11 @@
         }
       }
     },
+<<<<<<< HEAD
     "DashboardSeko-e2e": {
+=======
+    "AngularDashboard-e2e": {
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -104,11 +128,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
+<<<<<<< HEAD
             "devServerTarget": "DashboardSeko:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "DashboardSeko:serve:production"
+=======
+            "devServerTarget": "AngularDashboard:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "AngularDashboard:serve:production"
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
             }
           }
         },
@@ -124,5 +156,9 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "DashboardSeko"
+=======
+  "defaultProject": "AngularDashboard"
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
 }

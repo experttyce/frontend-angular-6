@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # DashboardSeko
+=======
+# AngularDashboard
+>>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-beta.4.
 
