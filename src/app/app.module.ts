@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -24,19 +23,10 @@ import { LoginComponent } from './login/login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-=======
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
->>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
     LoginComponent,
     ErrorComponent,
     HomeComponent,
@@ -56,17 +46,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   providers: [
     AppRoutingProviders
   ],
-=======
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
->>>>>>> 163a3a88a4324f6f54cd8debb93e59d662a254ce
   bootstrap: [AppComponent]
 })
 export class AppModule { }
