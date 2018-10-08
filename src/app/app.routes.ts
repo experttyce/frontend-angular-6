@@ -9,17 +9,24 @@ import { RegisterComponent } from './register/register.component';
 import { LogComponent } from './log/log.component';
 
 
-
-// Array  de rutas - configuracion
-
-const ROUTES: Routes = [
-    { path: '  ', component: HomeComponent },
-     { path: 'home', component: HomeComponent },
-     { path: 'error', component: ErrorComponent },
-     { path: 'register', component: RegisterComponent },
-     { path: 'log', component: LogComponent },
-
-     { path: '* *',  component: HomeComponent},
+const appROUTES: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'error',
+    component: ErrorComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'error'
+  }
 ];
 
 // exportar el modulo del router
