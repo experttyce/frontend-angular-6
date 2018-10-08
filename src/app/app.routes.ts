@@ -16,7 +16,7 @@ const appROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'error', component: ErrorComponent },
-    { path: '* *',  pathMatch: 'full', redirectTo: 'error' }
+    { path: '**',  pathMatch: 'full', redirectTo: 'error' }
 ];
 
 
