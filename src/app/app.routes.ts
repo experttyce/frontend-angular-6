@@ -12,14 +12,24 @@ import { HomeComponent } from './home/home.component';
 // Array  de rutas - configuracion
 
 const appROUTES: Routes = [
-    { path: 'home', component: HomeComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'error', component: ErrorComponent },
-    { path: '**',  pathMatch: 'full', redirectTo: 'error' }
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'error',
+    component: ErrorComponent
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'error'
+  }
 ];
-
-
 
 // exportar el modulo del router
 export const AppRoutingProviders: any [] = [];
