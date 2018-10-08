@@ -16,11 +16,15 @@ const appROUTES: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LogComponent
   },
   {
     path: 'error',
     component: ErrorComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: '**',
@@ -31,7 +35,7 @@ const appROUTES: Routes = [
 
 // exportar el modulo del router
 export const AppRoutingProviders: any [] = [];
-export const routing: ModuleWithProviders = RouterModule.forRoot(ROUTES);
+export const routing: ModuleWithProviders = RouterModule.forRoot(appROUTES);
 
 
 
