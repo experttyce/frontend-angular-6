@@ -43,11 +43,13 @@
     "js-query": "0.0.1",
     "metismenu": "^3.0.3",
     "ngx-toastr": "^9.1.0",
+    "ngx-webstorage": "^2.0.1",
     "pace-js": "^1.0.2",
     "pace-js-amd-fix": "^1.0.5",
     "peity": "^3.3.0",
     "popper.js": "^1.14.4",
     "rxjs": "~6.3.2",
+    "rxjs-compat": "^6.3.3",
     "sparkline": "^0.2.0",
     "sparkline-demo": "0.0.1",
     "style.css": "^1.0.0",
@@ -56,7 +58,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.9.0-beta.1",
+    "@angular-devkit/build-angular": "^0.9.0-rc.2",
     "@angular/cli": "~7.0.0-beta.4",
     "@angular/compiler-cli": "~7.0.0-beta.5",
     "@angular/language-service": "~7.0.0-beta.5",
