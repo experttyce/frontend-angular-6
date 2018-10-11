@@ -1,33 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule} from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 
-// Paquete para el almacenamiento web
 import { Ng2Webstorage} from 'ngx-webstorage';
 
-// Rutas
 
-import { routing, AppRoutingProviders } from './app.routes';
+import { AlertService} from '../app/common/services/alert.service';
+import { AuthenticationService } from '../app/common/services/authentication.service';
+import { HttpService } from '../app/common/services/http.service';
 
-// importar servicios
-
-import { AlertService} from './services/alert.service';
-import { AuthenticationService } from './services/authentication.service';
-import { HttpService } from './services/http.service';
-
-// importar componentes
 import { AppComponent } from './app.component';
-import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { SharedModule } from './shared/shared.module';
-import { LogComponent} from './log/log.component';
+import { ErrorComponent } from './common/error/error.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { SharedModule } from './modules/shared-components/shared-components.module';
+
 import { NgxPopper } from 'angular-popper';
-import { AlertComponent } from './directivas/alert.component';
+import { HeaderComponent } from './common/layout/header/header.component';
+
 
 
 @NgModule({
@@ -36,8 +30,7 @@ import { AlertComponent } from './directivas/alert.component';
     ErrorComponent,
     HomeComponent,
     RegisterComponent,
-    LogComponent,
-    AlertComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,14 +38,14 @@ import { AlertComponent } from './directivas/alert.component';
     ReactiveFormsModule,
     RouterModule,
     HttpModule,
-    routing,
+    AppRoutingModule,
     SharedModule,
     NgxPopper,
-    HttpClientModule,
+    
     Ng2Webstorage
   ],
   providers: [
-    AppRoutingProviders,
+
     AlertService,
     AuthenticationService,
     HttpService

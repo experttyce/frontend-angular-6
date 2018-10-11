@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../services/authentication.service';
+import {AuthenticationService} from '../../common/services/authentication.service';
 import {Router} from '@angular/router';
 import {SessionStorageService} from 'ngx-webstorage';
 
@@ -21,8 +21,6 @@ export class LogComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  // _authService utiliza el metodo de login 
   onSubmit(event: Event) {
     event.preventDefault();
     this._authService.logIn(this.user.username, this.user.password).subscribe(
@@ -30,7 +28,7 @@ export class LogComponent implements OnInit {
           this._authService.user = data;
           this._authService.hasSession = true;
           this._locker.store('user', data);
-          this._router.navigate(['/home']);
+          this._router.navigate(['/auth/home']);
       },
       err => {
         console.error(err);

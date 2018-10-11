@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Config} from '../config';
+import {Config} from '../../config/config';
 import {HttpService} from './http.service';
 import {SessionStorageService} from 'ngx-webstorage';
 

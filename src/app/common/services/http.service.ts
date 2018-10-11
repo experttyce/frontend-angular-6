@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable} from 'rxjs/Observable';
-import {Config} from '../config';
+import {Config} from '../../config/config';
 
 @Injectable()
 export class HttpService {
@@ -23,7 +23,7 @@ export class HttpService {
   }
 
 
-  // el post acepta el token como opcional
+  //  acepta el token como opcional
   public post(url, params, token?): Observable<any> {
     const headers = !!token ? new Headers({
       'Content-Type': 'application/json',
