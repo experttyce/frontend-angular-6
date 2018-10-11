@@ -11,6 +11,8 @@ export class AuthenticationService {
 
   hasSession = false;
   user;
+
+  //conexion con el servidor
   apiBaseURL: string = Config.API_SERVER_URL;
 
   constructor(public _http: HttpService, public _locker: SessionStorageService) {

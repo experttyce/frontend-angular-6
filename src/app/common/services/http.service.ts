@@ -6,6 +6,8 @@ import {Config} from '../../config/config';
 
 @Injectable()
 export class HttpService {
+
+  // 
   apiBaseURL = Config.API_SERVER_URL;
 
   constructor(public _http: Http) {
@@ -23,7 +25,7 @@ export class HttpService {
   }
 
 
-  //  acepta el token como opcional
+  //  acepta el token como opcional '?'
   public post(url, params, token?): Observable<any> {
     const headers = !!token ? new Headers({
       'Content-Type': 'application/json',
