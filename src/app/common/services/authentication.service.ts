@@ -1,45 +1,17 @@
 import { Injectable } from '@angular/core';
-import {Config} from '../../config/config';
-import {HttpService} from './http.service';
-import {SessionStorageService} from 'ngx-webstorage';
+import { HttpClient } from '@angular/common/http';
+ import { Observable } from 'rxjs/Observable';
 
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthenticationService {
 
-  hasSession = false;
-  user;
-
-  //conexion con el servidor
-  apiBaseURL: string = Config.API_SERVER_URL;
-
-  constructor(public _http: HttpService, public _locker: SessionStorageService) {
+  constructor(private http: HttpClient) {
   }
 
-  public isLoggedIn() {
-    const user = this._locker.retrieve('user');
-    if (!!user) {
-      this.user = user;
-      this.hasSession = true;
-    }
-    return this.hasSession;
+  login(username:string, password:string) {
+    return this.http.post('https://reqres.in/api/login', {
+      email: username,
+      password: password,     
+    });     
   }
-
-  public logIn(username: string, password: string) {
-    const url = `${this.apiBaseURL}/users/login`;
-
-    return this._http.post(url, {
-      'username': username,
-      'password': password
-    });
-  }
-
-  public logout() {
-    this.user = null;
-    this.hasSession = false;
-    this._locker.clear('user');
-  }
-
 }

@@ -1,10 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LogComponent } from './log.component';
+import { HomeComponent } from './home.component';
+
+
 
 const routes: Routes = [
-  { path: '', component: LogComponent }
+  { path: ' ', component: HomeComponent }
+  
+  
+
 ];
 
 @NgModule( {
@@ -14,4 +19,4 @@ const routes: Routes = [
   ],
   declarations: []
 } )
-export class LogRoutingModule {}
+export class HomeRoutingModule {}

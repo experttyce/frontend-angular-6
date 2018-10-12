@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../common/services/authentication.service';
-import {Router} from '@angular/router';
-import {SessionStorageService} from 'ngx-webstorage';
+ import {Router} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-log',
@@ -10,31 +11,39 @@ import {SessionStorageService} from 'ngx-webstorage';
 })
 export class LogComponent implements OnInit {
 
-  user: any = <any>{};
-
-  constructor(public _authService: AuthenticationService,
-              public _router: Router,
-              public _locker: SessionStorageService
-  ) {
-  }
+  constructor(private AuthenticationService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    
+    this.AuthenticationService.login(' peter@klaven   ', 'cityslicka').subscribe(
+      res => {
+        console.log(res);      
+    });  
+
+  }
+  
+  logIn(username: string, password: string, event: Event) {
+    event.preventDefault(); //
+
+    // Llama al servicio de inicio de sesión a la API 
+    this.AuthenticationService.login(username, password).subscribe(
+
+      res => {
+       console.log(res);
+
+      },
+      error => {
+        console.error(error);
+        
+      },
+
+      () => this.navigate()
+    );
+
   }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
-    this._authService.logIn(this.user.username, this.user.password).subscribe(
-      (data) => {
-          this._authService.user = data;
-          this._authService.hasSession = true;
-          this._locker.store('user', data);
-          this._router.navigate(['/auth/home']);
-      },
-      err => {
-        console.error(err);
-        this._authService.hasSession = false;
-      }
-    );
+  navigate() {
+    this.router.navigateByUrl('/home');
   }
 
 }

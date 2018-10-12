@@ -15,18 +15,23 @@ export const routes: Routes = [
     path: 'login',
     loadChildren: './pages/log/log.module#LogModule',
     pathMatch: 'full',
- 
-  },
+ },
+
 {
-  path: 'pages', loadChildren: './pages/home/home.module#HomeModule',
-    data: { name: 'Home' }, 
+  path: ' ',
+  loadChildren: './pages/home/home.module#HomeModule'
     
+},
+{
+  path: 'register', 
+  loadChildren: './pages/register/home.module#HomeModule'  
 },
  
   {
-    path: '**', component: ErrorComponent
+    path: '* *', component: ErrorComponent
   }
 ];
+
 @NgModule({
   imports: [
     CommonModule,
