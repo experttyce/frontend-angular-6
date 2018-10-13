@@ -1,45 +1,7 @@
-//
-import {  ModuleWithProviders } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 
-//
-import { ErrorComponent } from './error/error.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-import { LogComponent } from './log/log.component';
+export const AppRoutes: Routes = [];
 
-
-const appROUTES: Routes = [
-  {
-    path: '',
-    component: LogComponent
-  },
-  {
-    path: 'login',
-    component: LogComponent
-  },
-  {
-    path: 'error',
-    component: ErrorComponent
-  },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'error'
-  }
-];
-
-// exportar el modulo del router
-export const AppRoutingProviders: any [] = [];
-export const routing: ModuleWithProviders = RouterModule.forRoot(appROUTES);
 
 
 

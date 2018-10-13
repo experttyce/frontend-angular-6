@@ -1,157 +1,141 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "DashboardSeko": {
-            "root": "",
-            "sourceRoot": "src",
-            "projectType": "application",
-            "prefix": "app",
-            "schematics": {},
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist/DashboardSeko",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "src/tsconfig.app.json",
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ],
-                        "styles": [
-
-                            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-                            "./node_modules/font-awesome/css/font-awesome.css",
-                            "./node_modules/toastr/build/toastr.min.css",
-                            "./node_modules/gritter/css/jquery.gritter.css",
-                            "./node_modules/animate.css/animate.css",
-                            "src/assets/css/style.css"
-                        ],
-                        "scripts": [
-
-                            "./node_modules/jquery/dist/jquery.slim.min.js",
-                            "./node_modules/popper.js/dist/umd/popper.min.js",
-                            "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-                            "./node_modules/jquery/dist/jquery.min.js",
-                            "./node_modules/popper.js/dist/umd/popper.min.js",
-                            "./node_modules/bootstrap/dist/js/bootstrap.js",
-                            "./node_modules/metismenu/dist/metisMenu.js",
-                            "./node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
-                            "./node_modules/jquery.flot/jquery.flot.js",
-                            "./node_modules/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js",
-                            "./node_modules/jquery.flot/jquery.flot.resize.js",
-                            "./node_modules/jquery.flot/jquery.flot.pie.js",
-                            "./node_modules/peity/jquery.peity.min.js",
-                            "./node_modules/pace-js/pace.min.js",
-                            "./node_modules/gritter/js/jquery.gritter.min.js",
-                            "./node_modules/chart.js/dist/Chart.min.js",
-                            "./node_modules/toastr/build/toastr.min.js",
-                            "./node_modules/jquery-sparkline/jquery.sparkline.min.js",
-                            "src/assets/js/demo/peity-demo.js",
-                            "src/assets/js/inspinia.js",
-                            "src/assets/js/plugins/jquery-ui/jquery-ui.min.js",
-                            "src/assets/js/demo/sparkline-demo.js"
-
-                        ]
-                    },
-                    "configurations": {
-                        "production": {
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "DashboardSeko:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "DashboardSeko:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "DashboardSeko:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test.ts",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "src/tsconfig.spec.json",
-                        "karmaConfig": "src/karma.conf.js",
-                        "styles": [
-                            "src/styles.css"
-                        ],
-                        "scripts": [],
-                        "assets": [
-                            "src/favicon.ico",
-                            "src/assets"
-                        ]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "DashboardSeko": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/DashboardSeko",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/animate.css/animate.min.css",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/metismenu/dist/metisMenu.js",
+              "node_modules/jquery-sparkline/jquery.sparkline.js",
+              "vendor/pace/pace.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
+          }
         },
-        "DashboardSeko-e2e": {
-            "root": "e2e/",
-            "projectType": "application",
-            "prefix": "",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "DashboardSeko:serve"
-                    },
-                    "configurations": {
-                        "production": {
-                            "devServerTarget": "DashboardSeko:serve:production"
-                        }
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": "e2e/tsconfig.e2e.json",
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "DashboardSeko:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "DashboardSeko:build:production"
             }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "DashboardSeko:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
+      }
     },
-    "defaultProject": "DashboardSeko"
+    "DashboardSeko-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "DashboardSeko:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "DashboardSeko:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "DashboardSeko",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
+  }
 }
