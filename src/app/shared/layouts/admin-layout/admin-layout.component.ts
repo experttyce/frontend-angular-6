@@ -12,11 +12,11 @@ export class AdminLayoutComponent implements OnInit {
 
   constructor() { }
 
-  public ngOnInit():any {
+  public ngOnInit(): any {
     detectBody();
   }
 
-  public onResize(){
+  public onResize() {
     detectBody();
   }
 }

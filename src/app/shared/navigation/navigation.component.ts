@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import 'jquery-slimscroll';
 import {Router} from '@angular/router';
 
-declare var jQuery:any;
+declare var jQuery: any;
 
 @Component({
   selector: 'app-navigation',
@@ -19,14 +19,14 @@ export class NavigationComponent implements OnInit {
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
 
-    if (jQuery("body").hasClass('fixed-sidebar')) {
+    if (jQuery('body').hasClass('fixed-sidebar')) {
       jQuery('.sidebar-collapse').slimscroll({
         height: '100%'
-      })
+      });
     }
   }
 
-  activeRoute(routename: string): boolean{
+  activeRoute(routename: string): boolean {
     return this.router.url.indexOf(routename) > -1;
   }
 

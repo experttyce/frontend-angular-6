@@ -9,20 +9,39 @@
     </div>
     <h3>Register to IN+</h3>
     <p>Create account to see it in action.</p>
-    <form class="m-t" role="form" action="login.html">
+    <form class="m-t" role="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Name" required="">
+        <input type="text" class="form-control" placeholder="Name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback text-danger">
+          <div *ngIf="f.name.errors.required">Full Name is required</div>
+        </div>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" required="">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback text-danger">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+        </div>
+        <div *ngIf="msgapi?.email" class="invalid-feedback text-danger">
+          {{ msgapi.email[0] }}
+        </div>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" required="">
+        <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback text-danger">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
       </div>
       <div class="form-group">
         <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
       </div>
-      <button type="submit" class="btn btn-primary block full-width m-b">Register</button>
+      <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary block full-width m-b">Register</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </div>
+      <!--<p class="text-danger" *ngIf="msgapi">-->
+        <!--<small>{{ msgapi }}</small>-->
+      <!--</p>-->
 
       <p class="text-muted text-center"><small>Already have an account?</small></p>
       <a [routerLink]="['/auth/signin']" class="btn btn-sm btn-white btn-block" >Login</a>
