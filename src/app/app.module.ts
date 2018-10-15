@@ -1,50 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { RouterModule } from '@angular/router';
+
+
+import { ErrorModule } from './modules/error/error.module';
+import { HeaderModule } from './modules/layout/header/header.module';
 import { AppRoutingModule } from './app-routing.module';
 
-
-//importando servicios
-import { AlertService} from '../app/common/services/alert.service';
-import { AuthenticationService } from '../app/common/services/authentication.service';
-
 import { AppComponent } from './app.component';
-import { ErrorComponent } from './common/error/error.component';
-import { SharedModule } from './modules/shared-components/shared-components.module';
-
-import { NgxPopper } from 'angular-popper';
-import { HeaderComponent } from './common/layout/header/header.component';
 
 
 
+import { AuthenticationService } from './common/services/authentication.service';
 
-@NgModule({
+
+
+
+@NgModule( {
   declarations: [
-    AppComponent,
-    ErrorComponent,
-    HeaderComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule,
-    HttpModule,
     HttpClientModule,
+    HeaderModule,
+    ErrorModule,
+    RouterModule,
     AppRoutingModule,
-    SharedModule,
-    NgxPopper
+    HttpModule
+
+
   ],
   providers: [
-
-    AlertService,
-    AuthenticationService
-
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+ 
+    AuthenticationService ],
+  bootstrap: [ AppComponent ]
+} )
+export class AppModule {
+}

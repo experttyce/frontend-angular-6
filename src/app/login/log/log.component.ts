@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../../common/services/authentication.service';
  import {Router} from '@angular/router';
+ import {  ActivatedRoute,Params } from '@angular/router';
+
+ // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -11,9 +14,11 @@ import {AuthenticationService} from '../../common/services/authentication.servic
 })
 export class LogComponent implements OnInit {
 
-  constructor(private AuthenticationService: AuthenticationService, private router: Router) { }
+
+  constructor(private AuthenticationService: AuthenticationService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
+
     
     this.AuthenticationService.login(' peter@klaven   ', 'cityslicka').subscribe(
       res => {

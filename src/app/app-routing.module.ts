@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes } from '@angular/router';
-import {RouterModule} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { ErrorComponent } from './common/error/error.component';
+import { ErrorComponent } from './modules/error/error.component';
+import { HeaderComponent } from './modules/layout/header/header.component';
 
 
 
@@ -11,32 +11,35 @@ export const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: '/login'
   },
+  
   {
-    path: 'login',
-    loadChildren: './pages/log/log.module#LogModule',
-    pathMatch: 'full',
- },
+    path: 'login', loadChildren: './login/log/log.module#LogModule',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home', loadChildren: './pages/home/home.module#HomeModule'
 
-{
-  path: ' ',
-  loadChildren: './pages/home/home.module#HomeModule'
-    
-},
-{
-  path: 'register', 
-  loadChildren: './pages/register/home.module#HomeModule'  
-},
- 
+  },
   {
-    path: '* *', component: ErrorComponent
+    path: 'register', loadChildren: './pages/register/register.module#RegisterModule'
+  },
+ 
+  { path: 'header',  component: HeaderComponent},
+
+
+  {
+    path: '**', component: ErrorComponent
   }
 ];
 
-@NgModule({
+@NgModule( {
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot( routes ),
   ],
-  declarations: []
-})
-export class AppRoutingModule { }
+  exports:[
+    RouterModule
+  ]
+
+} )
+export class AppRoutingModule {}
