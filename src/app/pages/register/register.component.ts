@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
    );
 
   }
+  
   isRequired( fieldName: string ): boolean {
     return this.form.get( `user.${fieldName}` ).hasError( 'required' )
       && this.form.get( `user.${fieldName}` ).touched;
