@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ErrorComponent } from './modules/error/error.component';
+import { ErrorComponent } from './common/error/error.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 
 
@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   
   {
-    path: 'login', loadChildren: './login/log/log.module#LogModule',
+    path: 'login', loadChildren: './pages/log/log.module#LogModule',
     pathMatch: 'full'
   },
   {

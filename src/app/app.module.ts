@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 
-import { ErrorModule } from './modules/error/error.module';
+import { ErrorModule } from './common/error/error.module';
 import { HeaderModule } from './modules/layout/header/header.module';
 import { AppRoutingModule } from './app-routing.module';
 

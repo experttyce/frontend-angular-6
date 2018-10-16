@@ -10,21 +10,30 @@
             <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
 
             </p>
-            <form class="m-t" role="form" action="login.html">
-                <div class="form-group">
-                    <input type="text" class="form-control" #username name="username" placeholder="username" required="">
+            <div class="alert alert-success" *ngIf="status== 'success'">
+                Login correcto <a [routerLink]="['/login']"> Identificate aqui</a>
+            </div>
 
+            <div class="alert alert-danger" *ngIf="status== 'error'">
+                No te has identificado correctamente
+            </div>
+
+            <form #logForm="ngForm" (ngSubmit)="onSubmit()" class="m-t" role="form" action="login.html">
+                <div class="form-group">
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Email" required />
+                    <span class="badge badge-info" *ngIf="!email.valid && email.touched">El email es obligatorio</span>
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" #password name="password" placeholder="password" required="">
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" placeholder="Password" required />
+                    <span class="badge badge-info" *ngIf="!password.valid && password.touched">El Password es obligatorio</span>
 
                 </div>
                 <div class="form-group">
                     <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
                 </div>
 
-                <button type="submit" (click)="logIn(username.value, password.value, $event)" class="btn btn-primary block full-width m-b">LOGIN</button>
+                <button type="submit" class="btn btn-primary block full-width m-b">LOGIN</button>
 
 
                 <a href="#"><small>Forgot password?</small></a>
