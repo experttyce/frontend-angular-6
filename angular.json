@@ -3,17 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "DashboardSeko": {
+    "layouts": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/DashboardSeko",
+            "outputPath": "dist/layouts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -60,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "DashboardSeko:build"
+            "browserTarget": "layouts:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "DashboardSeko:build:production"
+              "browserTarget": "layouts:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DashboardSeko:build"
+            "browserTarget": "layouts:build"
           }
         },
         "test": {
@@ -82,7 +86,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -105,20 +109,19 @@
         }
       }
     },
-    "DashboardSeko-e2e": {
+    "layouts-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "DashboardSeko:serve"
+            "devServerTarget": "layouts:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "DashboardSeko:serve:production"
+              "devServerTarget": "layouts:serve:production"
             }
           }
         },
@@ -134,10 +137,5 @@
       }
     }
   },
-  "defaultProject": "DashboardSeko",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "css"
-    }
-  }
+  "defaultProject": "layouts"
 }
