@@ -9,49 +9,49 @@
             </div>
             <h3>Register to IN+</h3>
             <p>Create account to see it in action.</p>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                <div formGroupName="user">
-                    <div class="form-group" [ngClass]="{ 'has-error': isRequired('name')}">
+
+            <div class="alert alert-success" *ngIf="status== 'success'">
+                Registro completado correctamente, <a [routerLink]="['/login']"> Identificate aqui</a>
+            </div>
 
 
-                        <input id="name" formControlName="name" class="form-control" placeholder="Name" required />
+            <div class="alert alert-danger" *ngIf="status== 'error'">
+                no te has registrado correctamente correctamente, Vuelve a intentarlo
+            </div>
 
-                        <span class="help-block" *ngIf="isRequired('name')">
-                         Nombre requerido
-          </span>
-                    </div>
 
-                    <div class="form-group" [ngClass]="{'has-error': isRequired('email') || isInvalidEmail()}">
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="m-t" role="form" action="login.html">
+                <div class="form-group">
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" placeholder="Name" required/>
 
-                        <input id="email" formControlName="email" class="form-control" placeholder="Email" required />
-                        <span class="help-block" *ngIf="isRequired('username')">
-            Correo requerido
-          </span>
-                        <span class="help-block" *ngIf="isInvalidEmail()">
-            Correo no tiene formato válido
-          </span>
-                    </div>
-                    <div class="form-group" [ngClass]="{'has-error' : isRequired('password') || isInvalidPassword()}">
+                    <span class="badge badge-info" *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
 
-                        <input id="password" type="password" formControlName="password" class="form-control" placeholder="Password" required />
-                        <span class="help-block" *ngIf="isRequired('password')">
-            Contraseña requerida
-          </span>
-                        <span class="help-block" *ngIf="form.get('user.password').hasError('invalidPassword')">
-            Contraseña requiere 6 caracteres como minimo (mayuculas,minisculas,numeros y )
-          </span>
-                    </div>
                 </div>
-                <div class="form-group margin-top-sm">
-                    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Login
-        </button>
+
+                <div class="form-group">
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Email" required/>
+                    <span class="badge badge-info" *ngIf="!email.valid && email.touched">
+                                El email  no es correcto
+                            </span>
                 </div>
-                <a href="#"><small>Forgot password?</small></a>
+
+                <div class="form-group">
+                    <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" placeholder="Password" required/>
+                    <span class="badge badge-info" *ngIf="!password.valid && password.touched">
+                                  El Password  no es correcto
+                                </span>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> Agree the terms and policy </label></div>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid">Register
+                </button>
                 <p class="text-muted text-center"><small>Already have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" [routerLink]="['/Log']" [routerLinkActive]="['active']">Login</a>
-
-                <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
+                <a class="btn btn-sm btn-white btn-block" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
             </form>
+            <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>
+
 </div>

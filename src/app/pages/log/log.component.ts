@@ -17,29 +17,32 @@ export class LogComponent implements OnInit {
 
   constructor(
   //  private AuthenticationService: AuthenticationService,
-  private _route: ActivatedRoute,
+    private _route: ActivatedRoute,
      private _router: Router,
      private _userService : UserService
    ){
-
     this.user = new User('','','','');
     }
 
   ngOnInit() {
     console.log('log.component cargado!!');
-    console.log(this._userService.getIdentity());
-    console.log(this._userService.getToken());
+
 
   }
+
+
+     
+
   onSubmit(){
 
-    //loguear al usuario
+    //loguear al usuario y conseguir sus datos 
     this._userService.signup(this.user).subscribe(
       response => {
         this.identity = response.user;
         if(!this.identity || !this.identity._id){
           alert('El usuario no se ha logueado correctamente');
         }else{
+          //mostrar Identity (el objeto del usuario)
           this.identity.password='';
         localStorage.setItem('identity', this.identity);
      

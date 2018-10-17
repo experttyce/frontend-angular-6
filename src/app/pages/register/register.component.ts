@@ -1,10 +1,11 @@
+'use strict';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { User } from '../../models/users';
-import { GLOBAL } from '../../common/services/global';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../../common/services/user.service';
 import { RegisterValidators } from './register.validators';
+import { GLOBAL } from '../../common/services/global';
 
 
 
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
      private _route: ActivatedRoute,
      private _router: Router,
      private _userService: UserService,
-     private _formBuilder: FormBuilder,
+     private _formBuilder: FormBuilder
 
      ){
        this.user = new User('','','','');
@@ -44,26 +45,38 @@ export class RegisterComponent implements OnInit {
  
   }
 
-  onSubmit(registerForm){
-    this._userService.register (this.user).subscribe(
-     response =>{
-       if(response.user && response.user._id){
-        this.status= 'success';
-        this.user = new User('','','','');
-        registerForm.reset();
-       }else{
-        this.status= 'error';
-       }
-     
+  onSubmit(){
+    this._userService.register(this.user).subscribe(response => {
+     console.log( response );
     },
+    ( err ) => {
+      console.error( err );
+      }
+    )
+    
+      }
+/*
+      onSubmit(){
+        this._userService.register(this.user).subscribe(response => {
+        if(response.user){
+          this.status= 'success';
+          this.user = new User('','','','');
+          
+        }else{
+         
+          this.status='error';
+        }
+          },
+          error =>{
+            console.log(<any>error);
+          }
+        );
+        
+          } */
 
-    error=>{
-      console.log(<any>error);
-    }
-   );
 
-  }
-  
+
+
   isRequired( fieldName: string ): boolean {
     return this.form.get( `user.${fieldName}` ).hasError( 'required' )
       && this.form.get( `user.${fieldName}` ).touched;
