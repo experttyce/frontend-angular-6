@@ -17,6 +17,10 @@ export const AppRoutes: Routes = [
         path: 'home',
         canActivate: [AuthGuard] ,
         loadChildren: './home/home.module#HomeModule'
+      },
+      {
+        path: 'public',
+        loadChildren: './public/public.module#PublicModule'
       }
     ]
   }, {

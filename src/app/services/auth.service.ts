@@ -18,7 +18,7 @@ export class AuthService {
       .pipe(map(user => {
           // login successful if there's a jwt token in the response
           if (user.data.user && user.data.token) {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            // store verifyuser details and jwt token in local storage to keep verifyuser logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user.data));
           }
 
@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   logout() {
-    // remove user from local storage to log user out
+    // remove verifyuser from local storage to log verifyuser out
     localStorage.removeItem('currentUser');
   }
 }

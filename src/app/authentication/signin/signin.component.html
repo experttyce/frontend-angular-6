@@ -9,6 +9,7 @@
       <h3>Welcome to IN+</h3>
 
       <p>Login in. To see it in action.</p>
+
       <form class="m-t" role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <input type="email" formControlName="email" class="form-control" placeholder="Username" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">

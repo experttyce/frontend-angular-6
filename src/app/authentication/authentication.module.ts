@@ -7,27 +7,18 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { ForgotComponent } from './forgot/forgot.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { AuthGuard } from '../guards/auth.guard';
-import { AuthService } from '../services/auth.service';
-import { JwtInterceptor } from '../helpers/jwt.interceptor';
-import { ErrorInterceptor } from '../helpers/error.interceptor';
-import { UserService } from '../services/user.service';
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule,
     ReactiveFormsModule,
-    AuthenticationRoutingModule
+    AuthenticationRoutingModule,
+    SweetAlert2Module
   ],
   declarations: [ForgotComponent, SigninComponent, SignupComponent],
-  providers: [
-    AuthGuard,
-    AuthService,
-    UserService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-  ]
+  providers: [  ]
 })
 export class AuthenticationModule {}

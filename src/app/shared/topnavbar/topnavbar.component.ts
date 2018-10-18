@@ -7,10 +7,11 @@ declare var jQuery: any;
   templateUrl: './topnavbar.component.html'
 })
 export class TopnavbarComponent implements OnInit {
-
+  isAuthenticate: boolean;
   constructor() { }
 
   ngOnInit() {
+    this.isAuthenticate = !!localStorage.getItem('currentUser');
   }
 
   toggleNavigation(): void {

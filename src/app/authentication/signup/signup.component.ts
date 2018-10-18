@@ -1,7 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+
+
+import { UserService } from '../../services';
+import { ApiResponse } from '../../shared/reponse.interface';
+import {SwalComponent} from '@toverux/ngx-sweetalert2';
+import swal from'sweetalert2';
 declare var jQuery: any;
 
 @Component({
@@ -9,11 +14,14 @@ declare var jQuery: any;
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit, AfterViewInit  {
+  @ViewChild('signUpSwal') private signUpSwal: SwalComponent;
   registerForm: FormGroup;
   loading = false;
   submitted = false;
   msgapi: null;
+  signupResult: string;
+  customText: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,8 +33,11 @@ export class SignupComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      url: window.location.origin
     });
+    // this.openModal('welcome')
+
   }
 
   get f() { return this.registerForm.controls; }
@@ -34,7 +45,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
     this.msgapi = null;
     this.submitted = true;
-
+    this.signupResult = '';
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
@@ -43,17 +54,22 @@ export class SignupComponent implements OnInit {
     this.loading = true;
     this.userService.register(this.registerForm.value)
       .subscribe(
-        data => {
-          // this.alertService.success('Registration successful', true);
-          this.router.navigate(['/auth/signin']);
+        (data: ApiResponse) => {
+          swal({
+            title: 'Successful!',
+            text: data.message,
+            type: 'success',
+            allowOutsideClick: false
+          }).then(() => {
+            this.router.navigate(['/auth/signin']);
+          })
         },
         error => {
-          // this.alertService.error(error);
           this.msgapi = error;
           this.loading = false;
-          // console.log(this.msgapi);
         });
   }
+
 
   ngAfterViewInit() {
     jQuery('.i-checks').iCheck({

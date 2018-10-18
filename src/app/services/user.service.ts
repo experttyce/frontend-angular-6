@@ -14,4 +14,9 @@ export class UserService {
     return this.http.post(`${environment.baseUrl}/api/register`, user);
   }
 
+  verify(verification_code) {
+    return this.http.post(`${environment.baseUrl}/api/user/verify/${verification_code}`,{});
+  }
+
+
 }
