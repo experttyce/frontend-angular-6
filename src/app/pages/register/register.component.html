@@ -10,36 +10,34 @@
             <h3>Register to IN+</h3>
             <p>Create account to see it in action.</p>
 
-            <div class="alert alert-success" *ngIf="status== 'success'">
-                Registro completado correctamente, <a [routerLink]="['/login']"> Identificate aqui</a>
+            <div class="alert alert-success" role="alert" *ngIf="usuario_guardado">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Has been successfully registered</p>
+                <hr>
+                <p class="mb-0">"Thanks for signing up! Please check your email to complete your registration."</p>
             </div>
-
-
-            <div class="alert alert-danger" *ngIf="status== 'error'">
-                no te has registrado correctamente correctamente, Vuelve a intentarlo
-            </div>
-
 
             <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" class="m-t" role="form" action="login.html">
                 <div class="form-group">
-                    <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" placeholder="Name" required/>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="user.name" placeholder="Name" #name="ngModel" required minlength="5" maxlength="8">
+                    <small [hidden]="name.valid || (name.pristine )" class="text-danger">
+                    Name is required (minimum 5 characters).
+                  </small>
 
-                    <span class="badge badge-info" *ngIf="!name.valid && name.touched">El nombre es obligatorio</span>
+
 
                 </div>
 
                 <div class="form-group">
-                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Email" required/>
-                    <span class="badge badge-info" *ngIf="!email.valid && email.touched">
-                                El email  no es correcto
-                            </span>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="Email" required #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                    <small [hidden]="email.valid || (email.pristine )" class="text-danger">
+                     Email is required and format should be <i>john@doe.com</i>.
+                        </small>
                 </div>
 
                 <div class="form-group">
                     <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" placeholder="Password" required/>
-                    <span class="badge badge-info" *ngIf="!password.valid && password.touched">
-                                  El Password  no es correcto
-                                </span>
+                    <div class="p-3 mb-2 alert-danger text-danger" *ngIf="!password.valid && password.touched">El password es obligatorio</div>
                 </div>
 
                 <div class="form-group">
@@ -50,6 +48,9 @@
                 <p class="text-muted text-center"><small>Already have an account?</small></p>
                 <a class="btn btn-sm btn-white btn-block" [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
             </form>
+
+
+
             <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>

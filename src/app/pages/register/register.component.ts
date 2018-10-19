@@ -2,10 +2,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { User } from '../../models/users';
-import { FormBuilder, Validators } from '@angular/forms';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../common/services/user.service';
-import { RegisterValidators } from './register.validators';
-import { GLOBAL } from '../../common/services/global';
+import { ValidationService } from '../../common/services/validation.service';
+
+
+import {  Input } from '@angular/core';
+import {  FormControl } from '@angular/forms';
 
 
 
@@ -13,30 +17,35 @@ import { GLOBAL } from '../../common/services/global';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+   
   providers:[UserService]
 })
 export class RegisterComponent implements OnInit {
+  @Input() control: FormControl;
   public user: User;
-  public status: string;
-  
-  form = this._formBuilder.group( {
-    user: this._formBuilder.group( {
-      name: [ '', Validators.required ],
-      email: [ '', [ Validators.email, Validators.required ] ],
-      username: [ '', Validators.required ],
-      password: [ '', [ Validators.required, RegisterValidators.checkPassword ] ]
-    } )
-  } );
+  public usuario_guardado;
+  userForm: any;
 
-  constructor( 
+
+  constructor(
+
      private _route: ActivatedRoute,
      private _router: Router,
      private _userService: UserService,
-     private _formBuilder: FormBuilder
+     private formBuilder: FormBuilder
+    ){
+       
 
-     ){
+      this.userForm = this.formBuilder.group({
+        name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.pattern(/^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})(?=.*[!@#$%^&*]{1})\S{6,}$/)]],
+      });
+
+    
        this.user = new User('','','','');
- 
+      
+        
       }
 
   ngOnInit() {
@@ -45,58 +54,24 @@ export class RegisterComponent implements OnInit {
  
   }
 
-  onSubmit(){
-    this._userService.register(this.user).subscribe(response => {
-     console.log( response );
-    },
-    ( err ) => {
-      console.error( err );
-      }
-    )
+
+  
+  onSubmit(form){
     
+    this._userService.register(this.user).subscribe( 
+      response => {
+        this.usuario_guardado = response;
+        form.reset();
+        console.log(response);
+      },
+     error => {
+      console.error( <any> error );
       }
-/*
-      onSubmit(){
-        this._userService.register(this.user).subscribe(response => {
-        if(response.user){
-          this.status= 'success';
-          this.user = new User('','','','');
-          
-        }else{
-         
-          this.status='error';
-        }
-          },
-          error =>{
-            console.log(<any>error);
-          }
-        );
-        
-          } */
+    ); 
+  } 
+
+  
 
 
-
-
-  isRequired( fieldName: string ): boolean {
-    return this.form.get( `user.${fieldName}` ).hasError( 'required' )
-      && this.form.get( `user.${fieldName}` ).touched;
-  }
-
-  isInvalidPassword() {
-    const field = 'user.password';
-    return (
-      this.form.get( field ).hasError( 'invalidPassword' ) &&
-      // 
-      this.form.get( field ).dirty &&
-      // 
-      ! this.isRequired( 'password' )
-    );
-  }
-  isInvalidEmail() {
-    const field = 'user.email';
-    return (
-      this.form.get( field ).hasError( 'email' )
-    );
-  }
 
 }

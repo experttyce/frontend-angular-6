@@ -21,7 +21,7 @@ export class LogComponent implements OnInit {
      private _router: Router,
      private _userService : UserService
    ){
-    this.user = new User('','','','');
+    //this.user = new User('','','','');
     }
 
   ngOnInit() {
@@ -30,16 +30,14 @@ export class LogComponent implements OnInit {
 
   }
 
-
-     
-
+  /*
   onSubmit(){
 
     //loguear al usuario y conseguir sus datos 
-    this._userService.signup(this.user).subscribe(
-      response => {
-        this.identity = response.user;
-        if(!this.identity || !this.identity._id){
+       this._userService.signup(this.user).subscribe(
+        response => {
+        this.identity = response;
+        if(!this.identity || !this.identity._id){ 
           alert('El usuario no se ha logueado correctamente');
         }else{
           //mostrar Identity (el objeto del usuario)
@@ -50,7 +48,7 @@ export class LogComponent implements OnInit {
 
 this._userService.signup(this.user,'true').subscribe(
   response => {
-    this.token = response.token;
+    this.token = response;
     if(this.token.length <=0){
       alert('El token no se ha generado');
     }else{
@@ -76,4 +74,8 @@ if(errorMessage != null){
 }
     );
 }
+
+*/
+
+
 }

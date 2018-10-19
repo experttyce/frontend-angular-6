@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 import 'rxjs/add/operator/map';
@@ -20,18 +19,19 @@ export class UserService {
       
   }
  
-
+//pèticion ajax con el metodo POST
 
   register(user_to_register):Observable<any> {
 
     let params= JSON.stringify(user_to_register);
-    let headers= new HttpHeaders({'Content-Type':'aplication/json'});
+    let headers= new HttpHeaders().set('Content-Type','aplication/json');
 
     return  this.http.post(this.url+'register', params, {headers:headers})
-    .map(res => res );
+   
+
    }
    
-  
+  /*
    
   signup(user_to_login, gettoken= null){
       if(gettoken !=null){
@@ -44,6 +44,7 @@ export class UserService {
   return  this.http.post(this.url+'login', params, {headers:headers})
   .map(res => res );
 }
+
 getIdentity (){
   let identity = JSON.parse(localStorage.getItem('identity'));
   if (identity!= "undefined"){
@@ -65,7 +66,7 @@ if(token!= "undefined"){
   this.token=null;
 }
 return this.token;
-}
+}*/
 
 }
 
