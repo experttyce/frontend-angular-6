@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams,HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-
+import { AuthenticationService } from '../services/index';
+import { User } from '../../models';
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class UserService {
     public url: string;
-    public identity;
-    public token;
+ 
 
   constructor(
-    public http: HttpClient
+    public http: HttpClient,
+    private authenticationService: AuthenticationService
     ) {
     this.url=  GLOBAL.url; 
       
@@ -25,49 +27,20 @@ export class UserService {
 
     let params= JSON.stringify(user_to_register);
     let headers= new HttpHeaders().set('Content-Type','aplication/json');
-
-    return  this.http.post(this.url+'register', params, {headers:headers})
-   
+    return this.http.post(this.url+'register', params, {headers:headers})
 
    }
-   
-  /*
-   
-  signup(user_to_login, gettoken= null){
-      if(gettoken !=null){
-        user_to_login.gettoken=gettoken;
-      }
 
-  let params= JSON.stringify(user_to_login);
-  let headers = new HttpHeaders({'Content-Type':'aplication/json'});
 
-  return  this.http.post(this.url+'login', params, {headers:headers})
-  .map(res => res );
+  verifyEmail(verify_code){
+    let params= JSON.stringify(verify_code);
+    let headers= new HttpHeaders().set('Content-Type','aplication/json');
+    return this.http.post(this.url+'user/verify', params, {headers:headers})
 }
 
-getIdentity (){
-  let identity = JSON.parse(localStorage.getItem('identity'));
-  if (identity!= "undefined"){
-    this.identity=identity;
-
-  }else{
-    this.identity= null;
-  }
-  return this.identity;
+getAll() {
+  return this.http.get<User[]>(`/users`);
 }
-
-
-getToken (){
-
-let token = localStorage.getItem('token');
-if(token!= "undefined"){
-  this.token=token;
-}else{
-  this.token=null;
-}
-return this.token;
-}*/
-
 }
 
 

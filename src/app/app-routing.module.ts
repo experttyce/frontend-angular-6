@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ErrorComponent } from './common/error/error.component';
 import { HeaderComponent } from './modules/layout/header/header.component';
 
 
@@ -27,9 +26,7 @@ export const routes: Routes = [
   { path: 'header',  component: HeaderComponent},
 
 
-  {
-    path: '**', component: ErrorComponent
-  }
+  
 ];
 
 @NgModule( {

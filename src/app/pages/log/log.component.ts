@@ -1,81 +1,66 @@
 import {Component, OnInit} from '@angular/core';
-import {  Router, ActivatedRoute,Params } from '@angular/router';
+import {  Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
 import { UserService } from '../../common/services/user.service';
+import { AuthenticationService } from '../../common/services/authentication.service';
 import { User } from '../../models/users';
 
 @Component({
   selector: 'app-log',
   templateUrl: './log.component.html',
-  providers: [UserService]
+  providers: [UserService,AuthenticationService]
 })
 export class LogComponent implements OnInit {
   public user: User;
-  public identity;
-  public token;
   public status: string;
+  loginForm: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  error = '';
 
 
   constructor(
-  //  private AuthenticationService: AuthenticationService,
-    private _route: ActivatedRoute,
-     private _router: Router,
-     private _userService : UserService
-   ){
-    //this.user = new User('','','','');
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {}
+
+ngOnInit() {
+    this.loginForm = this.formBuilder.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+
+    // reset login status
+    this.authenticationService.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+}
+
+// convenience getter for easy access to form fields
+get f() { return this.loginForm.controls; }
+
+onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+        return;
     }
 
-  ngOnInit() {
-    console.log('log.component cargado!!');
-
-
-  }
-
-  /*
-  onSubmit(){
-
-    //loguear al usuario y conseguir sus datos 
-       this._userService.signup(this.user).subscribe(
-        response => {
-        this.identity = response;
-        if(!this.identity || !this.identity._id){ 
-          alert('El usuario no se ha logueado correctamente');
-        }else{
-          //mostrar Identity (el objeto del usuario)
-          this.identity.password='';
-        localStorage.setItem('identity', this.identity);
-     
-//conseguir el token
-
-this._userService.signup(this.user,'true').subscribe(
-  response => {
-    this.token = response;
-    if(this.token.length <=0){
-      alert('El token no se ha generado');
-    }else{
-      localStorage.setItem('token',JSON.stringify(this.token));
-      this.status = 'sucess';
-    }
-
-  },
-  error =>{
-    console.log(<any>error);
-  }
-);
-  }
-},
-error => {
-var errorMessage= <any>error;
-if(errorMessage != null){
-  var body = JSON.parse(error._body);
-  this.status= 'error';
-
+    this.loading = true;
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
+        .pipe(first())
+        .subscribe(
+            data => {
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                this.error = error;
+                this.loading = false;
+            });
 }
-
-}
-    );
-}
-
-*/
-
-
 }
