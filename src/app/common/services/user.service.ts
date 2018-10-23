@@ -4,17 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from './global';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { AuthenticationService } from '../services/index';
+import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../../models';
 import { RequestOptions } from '@angular/http';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserService {
     public url: string;
  
 
-  constructor(
-    public http: HttpClient,
+  constructor( private http: HttpClient,
     private authenticationService: AuthenticationService
     ) {
     this.url=  GLOBAL.url; 
@@ -38,9 +37,7 @@ export class UserService {
     return this.http.post(this.url+'user/verify', params, {headers:headers})
 }
 
-getAll() {
-  return this.http.get<User[]>(`/users`);
-}
+
 }
 
 

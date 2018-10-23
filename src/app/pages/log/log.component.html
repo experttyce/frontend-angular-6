@@ -1,5 +1,5 @@
-<div class="gray-bg">
-    <div class="  middle-box text-center loginscreen   animated fadeInDown">
+<body class="gray-bg">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
 
@@ -7,46 +7,38 @@
 
             </div>
             <h3>Welcome to IN+</h3>
-            <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
 
-            </p>
-            <div class="alert alert-success" *ngIf="status== 'success'">
-                Login correcto <a [routerLink]="['/login']"> Identificate aqui</a>
-            </div>
+            <p>Login in. To see it in action.</p>
 
-            <div class="alert alert-danger" *ngIf="status== 'error'">
-                No te has identificado correctamente
-            </div>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-
-                    <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <form class="m-t" role="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                    <input type="email" formControlName="email" class="form-control" placeholder="Email">
                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.required" class="text-danger">Username is required</div>
                     </div>
                 </div>
-                <div class="form-group">
 
-                    <input type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+
+                <div class="form-group">
+                    <input type="password" formControlName="password" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.required" class="text-danger">Password is required</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <button [disabled]="loading" class="btn btn-primary">Login</button>
+                    <button [disabled]="loading" class="btn btn-primary block full-width m-b">Login</button>
                     <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
                     />
                 </div>
-                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+                <p class="text-danger" *ngIf="error">
+                    <small>{{ message }}</small>
+                </p>
 
-                <a href="#"><small>Forgot password?</small></a>
+                <a [routerLink]="['/auth/forgotpassword']"><small>Forgot password?</small></a>
                 <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                <a class="btn btn-sm btn-white btn-block" [routerLink]="['/register']"> Create an account</a>
+                <a [routerLink]="['/register']" class="btn btn-sm btn-white btn-block">Create an account</a>
             </form>
-
-
             <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
         </div>
     </div>
-
-</div>
+</body>

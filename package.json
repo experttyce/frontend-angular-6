@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~7.0.0-beta.5",
     "@angular/platform-browser-dynamic": "~7.0.0-beta.5",
     "@angular/router": "~7.0.0-beta.5",
+    "@auth0/angular-jwt": "^2.0.0",
+    "@ngxs/storage-plugin": "^3.2.0",
     "@types/jqueryui": "^1.12.5",
     "angular-popper": "^2.0.0",
     "animate.css": "^3.7.0",
