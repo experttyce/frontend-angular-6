@@ -4,7 +4,8 @@ import { LogComponent } from './log.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { LogRoutingModule } from './log-routing.module';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule( {
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router'
     LogRoutingModule,
     ReactiveFormsModule,
     RouterModule
+ 
   ],
   declarations: [
     LogComponent

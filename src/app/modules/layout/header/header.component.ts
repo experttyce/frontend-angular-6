@@ -1,6 +1,7 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, DoCheck} from '@angular/core';
 import {  Router } from '@angular/router';
-// import { ActivatedRoute } from '@angular/router';
+
+import { AuthenticationService } from '../../../common/services/authentication.service';
 
 
 
@@ -9,17 +10,29 @@ import {  Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, DoCheck {
+  public identity;
 
-  constructor(public router: Router) { }
+  anio: number = new Date().getFullYear();
+
+  constructor(public router: Router,
+    private authenticationService: AuthenticationService
+    
+    ) {
+     
+     }
 
   ngOnInit() {
-
+  this.identity = this.authenticationService;
+  
   }
+  public logout(){
+    this.authenticationService.logout();
+    
+  }  
 
-  logout() {
-  //  this._authService.logout();
-    this.router.navigate(['/login']);
+  ngDoCheck(){
+
   }
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { map } from 'rxjs/operators';
 import { GLOBAL } from './global';
@@ -7,8 +8,14 @@ import { GLOBAL } from './global';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   public url: string;
-    constructor(private http: HttpClient) {
+  public identity;
+  public token;
+
+    constructor(private http: HttpClient, private route: ActivatedRoute,
+        private router: Router,) {
       this.url=  GLOBAL.url; 
+  
+
       
      }
 
@@ -17,9 +24,10 @@ export class AuthenticationService {
     
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
-                if (user.data && user.data.token) {
+                if (user.data && user.data.token ) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(user.data));
+                  
                 }
 
                 return user;
@@ -29,5 +37,32 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        this.router.navigate(['/login']);
+      
     }
+
+
+    getIdentity(){
+    let identity= JSON.parse(localStorage.getItem('identity'));
+    if(identity != "undefined"){
+        this.identity= identity;
+    }else{
+    this.identity=null;
+    }
+    return this.identity;
 }
+
+    getToken(){
+        let token = localStorage.getItem('token');
+        if(token != "undefined"){
+            this.token=token;
+        }else{
+            this.token=null;
+        }
+        return this.getToken;
+    }
+
+
+}
+
+

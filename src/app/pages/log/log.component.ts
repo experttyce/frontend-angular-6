@@ -3,7 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
+
 import { AuthenticationService } from '../../common/services/authentication.service';
+//import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({templateUrl: 'log.component.html'})
 export class LogComponent implements OnInit {
@@ -14,6 +16,7 @@ export class LogComponent implements OnInit {
     error = '';
     message: string;
     constructor(
+  //      public toastr: ToastrManager,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
@@ -30,10 +33,16 @@ export class LogComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
     }
 
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
+
+
+    showSuccess() {
+        
+    }
 
     onSubmit() {
         this.submitted = true;
@@ -42,15 +51,19 @@ export class LogComponent implements OnInit {
         // stop here if form is invalid
         if (this.loginForm.invalid) {
             return;
+           
         }
 
         this.loading = true;
         this.authenticationService.login(this.f.email.value, this.f.password.value)
            .pipe(first())
             .subscribe((data) => {
-                  //  this.router.navigate([this.returnUrl]);
-                    this.router.navigate(['/home']);
+                //alert('Te has logueado correctamente');
+                
+               // this.toastr.successToastr(' Bienvenido ', 'Success!');
+                this.router.navigate(['/header']);
                  console.log(data);
+                
                 },
                 error => {
                     this.message=error;

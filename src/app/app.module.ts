@@ -7,9 +7,11 @@ import {AuthGuard} from './guards/auth.guard';
 import { AuthenticationService, UserService } from './common/services';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
+//import { ToastrModule } from 'ng6-toastr-notifications';
 
 
 import { HttpModule } from '@angular/http';
+
 import { RouterModule } from '@angular/router';
 import { HeaderModule } from './modules/layout/header/header.module';
 import { AppRoutingModule } from './app-routing.module';
