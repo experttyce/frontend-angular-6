@@ -7,11 +7,8 @@ const routes: Routes = [
   { path: '', component: LogComponent }
 ];
 
-@NgModule( {
-  imports: [
-    CommonModule,
-    RouterModule.forChild( routes )
-  ],
-  declarations: []
-} )
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
 export class LogRoutingModule {}

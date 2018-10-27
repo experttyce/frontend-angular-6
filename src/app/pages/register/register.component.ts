@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { User } from '../../models/users';
 import { FormBuilder,  Validators } from '@angular/forms';
-import { UserService } from '../../common/services/user.service';
+import { UserService } from '../../shared/services/user.service';
 import { RegisterValidators } from './register.validators';
 
 

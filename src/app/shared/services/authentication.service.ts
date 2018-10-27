@@ -5,11 +5,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { GLOBAL } from './global';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class AuthenticationService {
   public url: string;
-  public identity;
-  public token;
+ // public identity;
+  //public token;
 
     constructor(private http: HttpClient, private route: ActivatedRoute,
         private router: Router,) {
@@ -41,9 +41,9 @@ export class AuthenticationService {
       
     }
 
-
+/*
     getIdentity(){
-    let identity= JSON.parse(localStorage.getItem('identity'));
+    let identity= JSON.parse(localStorage.getItem('currentUser'));
     if(identity != "undefined"){
         this.identity= identity;
     }else{
@@ -53,14 +53,14 @@ export class AuthenticationService {
 }
 
     getToken(){
-        let token = localStorage.getItem('token');
+        let token = localStorage.getItem('currentUser');
         if(token != "undefined"){
             this.token=token;
         }else{
             this.token=null;
         }
-        return this.getToken;
-    }
+        return this.token;
+    } */
 
 
 }

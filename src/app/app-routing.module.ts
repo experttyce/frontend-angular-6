@@ -1,42 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
-import { HeaderComponent } from './modules/layout/header/header.component';
-
-
-
-export const routes: Routes = [
-  {
-    path: '', pathMatch: 'full', redirectTo: '/login'
-  },
-  
-  {
-    path: 'login', loadChildren: './pages/log/log.module#LogModule',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home', loadChildren: './pages/home/home.module#HomeModule'
-
-  },
-  {
-    path: 'register', loadChildren: './pages/register/register.module#RegisterModule'
-  },
- 
-  { path: 'header',  component: HeaderComponent},
-
-
-  
+const routes: Routes = [
+    { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
+    { path: 'login', loadChildren: './pages/log/log.module#LogModule' },
+       { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
+   // { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
+   // { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },
+    //{ path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
+    { path: '**', redirectTo: 'not-found' }
 ];
 
-@NgModule( {
-  imports: [
-    CommonModule,
-    RouterModule.forRoot( routes ),
-  ],
-  exports:[
-    RouterModule
-  ]
+@NgModule({
 
-} )
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+    
+})
 export class AppRoutingModule {}

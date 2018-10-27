@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
+import {SidebarComponent} from '../sidebar/sidebar.component'
+
 
 
 @NgModule( {
   imports: [
     CommonModule,
     RouterModule
+    
   ],
-  declarations: [ HeaderComponent ],
-  exports: [ HeaderComponent ]
+  declarations: [ SidebarComponent ],
+  exports: [ SidebarComponent ]
 } )
-export class HeaderModule {}
+export class SidebarModule {}
