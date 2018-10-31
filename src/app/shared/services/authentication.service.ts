@@ -15,8 +15,6 @@ export class AuthenticationService {
         private router: Router,) {
       this.url=  GLOBAL.url; 
   
-
-      
      }
 
     login(username: string, password: string) {
@@ -37,7 +35,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
-        this.router.navigate(['/login']);
+       // this.router.navigate(['/login']);
       
     }
 

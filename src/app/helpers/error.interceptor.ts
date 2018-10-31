@@ -14,15 +14,11 @@ export class ErrorInterceptor implements HttpInterceptor {
             if (err.status === 401) {
                 // auto logout if 401 response returned from api
                 this.authenticationService.logout();
-                return throwError({ error: { message: 'Username or password is incorrect' } });
-                //location.reload(true);
+                location.reload(true);
             }
+            
             const error = err.error.message || err.statusText;
             return throwError(error);
         }))
     }
-
-
-
-    
 }

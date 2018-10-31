@@ -7,12 +7,14 @@ import {AuthGuard} from './shared/guards';
 import { AuthenticationService, UserService } from './shared/services';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
-//import { ToastrModule } from 'ng6-toastr-notifications';
+
 
 
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AlertComponent } from './shared/directives/alert.component';
+import { AlertService } from './shared/services/alert.service';
 
 
 
@@ -21,7 +23,9 @@ import { AppComponent } from './app.component';
 
 @NgModule( {
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertComponent
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,7 @@ import { AppComponent } from './app.component';
     AuthGuard,
     AuthenticationService,
     UserService,
+    AlertService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],

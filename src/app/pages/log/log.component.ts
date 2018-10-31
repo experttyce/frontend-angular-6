@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import Popper from 'popper.js';
 
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
-//import { ToastrManager } from 'ng6-toastr-notifications';
+
 
 @Component({templateUrl: 'log.component.html',
 providers:[AuthenticationService]
@@ -17,7 +18,7 @@ export class LogComponent implements OnInit {
     returnUrl: string;
     error = '';
     message: string;
-    
+  
     constructor(
   //      public toastr: ToastrManager,
         private formBuilder: FormBuilder,
@@ -36,8 +37,6 @@ export class LogComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-
-      
 
     }
 
@@ -64,8 +63,8 @@ export class LogComponent implements OnInit {
            .pipe(first())
             .subscribe((data) => {
                 //alert('Te has logueado correctamente');
-                this.router.navigate(['/layout']);
-                 console.log(data);
+                this.router.navigate(['/dashboard']);
+                 // console.log(data);
                 
                 },
                 error => {

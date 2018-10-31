@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { AlertService } from '../services/alert.service';
 
 @Component({
-    selector: 'app-alert',
+    selector: 'AlertComponent',
     templateUrl: 'alert.component.html'
 })
 

@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
     
-  anio: number = new Date().getFullYear();
+  //anio: number = new Date().getFullYear();
+  test: Date = new Date();
+
     
-    collapedSideBar: boolean;
+    
 
     constructor() {}
 

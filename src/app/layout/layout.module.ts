@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router'
+
 
 
 import { LayoutRoutingModule } from './layout-routing.module';
@@ -11,9 +11,11 @@ import { HeaderComponent } from './components/header/header.component';
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule,
         LayoutRoutingModule
+        
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent]
+    declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
+    
+    bootstrap: [ LayoutComponent ]
 })
 export class LayoutModule {}
