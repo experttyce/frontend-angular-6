@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LogComponent } from './log.component';
+import { ListComponent } from './list.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule }    from '@angular/forms';
-import { LogRoutingModule } from './log-routing.module';
+import { ListRoutingModule } from './list-routing.module';
 import { RouterModule } from '@angular/router';
 
 
@@ -13,13 +13,13 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    LogRoutingModule,
+    ListRoutingModule,
     ReactiveFormsModule,
     RouterModule
  
   ],
   declarations: [
-    LogComponent
+    ListComponent
   ]
 } )
-export class LogModule {}
+export class ListModule {}

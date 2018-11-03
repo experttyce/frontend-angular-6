@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../../models';
-import { RequestOptions } from '@angular/http';
+import { RequestOptions, Headers } from '@angular/http';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -37,6 +37,15 @@ export class UserService {
     return this.http.post(this.url+'user/verify', params, {headers:headers})
 }
 
+
+
+getUserList(){
+  let reqHeader = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))
+   });
+  return this.http.get<User[]>(this.url+'users', { headers: reqHeader });
+}  
 
 }
 

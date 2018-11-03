@@ -29,6 +29,7 @@
                             "./node_modules/toastr/build/toastr.min.css",
                             "./node_modules/gritter/css/jquery.gritter.css",
                             "./node_modules/animate.css/animate.css",
+                            "./node_modules/bootstrap/dist/css/bootstrap.css",
                             "src/assets/css/style.css"
                         ],
                         "scripts": [

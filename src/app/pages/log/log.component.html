@@ -33,44 +33,20 @@
 
 
                 <div class="form-group  margin-top-sm">
-                    <button [disabled]="loginForm.invalid" class="btn btn-primary  block full-width m-b" data-toggle="modal" data-target="#exampleModalCenter"> <i class="glyphicon glyphicon-log-in"></i> &nbsp;&nbsp;    Login</button>
+                    <button [disabled]="loginForm.invalid" class="btn btn-primary  block full-width m-b"> <i class="glyphicon glyphicon-log-in"></i> &nbsp;&nbsp;    Login</button>
 
 
-                    <!--   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"> 
-                            Launch demo modal
-                          </button> -->
 
                     <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
                     />
                 </div>
 
-                <!--   <div class="alert alert-danger" role="alert" *ngIf="message" ng-show="errorMsg">
+                <div class="alert alert-danger" role="alert" *ngIf="message" ng-show="errorMsg">
 
-                    <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;{{message}}
-                </div> -->
-
+                    <h3> {{message}} </h3>
 
 
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header" *ngIf="message" ng-show="errorMsg">
-                                <h5 class="modal-title" id="exampleModalLongTitle">VERIFICA TU USUARIO O PASSWORD</h5>
-
-
-                            </div>
-                            <div class="modal-body">
-                                {{message}}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                            </div>
-                        </div>
-                    </div>
+                    <span class="glyphicon glyphicon-hand-right"> <h6> Verify your Password and Email</h6></span>
                 </div>
 
 

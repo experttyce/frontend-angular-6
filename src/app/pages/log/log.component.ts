@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import Popper from 'popper.js';
+
 
 
 import { AuthenticationService } from '../../shared/services/authentication.service';
@@ -24,6 +24,7 @@ export class LogComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
+        
         private authenticationService: AuthenticationService) {}
 
     ngOnInit() {
