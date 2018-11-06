@@ -1,56 +1,59 @@
-<div id="wrapper">
+<div class="fixed-sidebar">
+    <div id="wrapper">
 
-    <!-- barra lateral izquiera-->
-    <app-sidebar></app-sidebar>
-
-
-    <div id="page-wrapper" class="gray-bg ">
-
-        <div class="row border-bottom">
+        <!-- barra lateral izquiera-->
+        <app-sidebar></app-sidebar>
 
 
-            <!-- Footer -->
+        <div id="page-wrapper" class="gray-bg ">
 
-            <div class="footer text-center">
-                <div class="blockquote-footer">
-                    10GB of <strong>250GB</strong> Free.
-                    <strong>Copyright</strong> Example Company &copy; {{test | date: 'yyyy'}}
+            <div class="row border-bottom">
+
+
+                <!-- Footer -->
+
+                <div class="footer text-center">
+                    <div class="blockquote-footer">
+                        10GB of <strong>250GB</strong> Free.
+                        <strong>Copyright</strong> Example Company &copy; {{test | date: 'yyyy'}}
+                    </div>
+
                 </div>
+
+                <!-- encabezado-->
+                <app-header></app-header>
+
 
             </div>
 
-            <!-- encabezado-->
-            <app-header></app-header>
 
-
-        </div>
-
-
-        <!-- paginas-->
+            <!-- paginas-->
 
 
 
 
-        <div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center m-t-lg">
-                        <h1>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center m-t-lg">
+                            <h1>
 
-                            <router-outlet> </router-outlet>
-                        </h1>
+                                <router-outlet> </router-outlet>
+                            </h1>
 
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+
+
+
+            <!--  </div> -->
+
+
+
         </div>
-
-
-
-
-
-        <!--  </div> -->
-
-
 
     </div>

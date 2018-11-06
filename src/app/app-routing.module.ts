@@ -6,7 +6,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
     { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
     { path: 'login', loadChildren: './pages/log/log.module#LogModule' },
-       { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
+    { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
    // { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
    // { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },
     //{ path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },

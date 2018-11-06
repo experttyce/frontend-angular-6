@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 
+
 const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'login', pathMatch: 'prefix' },
+            { path: '/', redirectTo: 'login', pathMatch: 'prefix' },
             { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
             { path: 'list', loadChildren: './user/list.module#ListModule' },
             //{ path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },

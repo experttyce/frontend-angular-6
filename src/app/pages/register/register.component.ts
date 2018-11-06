@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   public user: User;
   public usuario_guardado;
   userForm: any;
+  message: string;
   
       form = this._formBuilder.group( {
       user: this._formBuilder.group( {
@@ -50,6 +51,7 @@ export class RegisterComponent implements OnInit {
         
       },
      error => {
+      this.message=error;
       console.error( <any> error );
       }
     ); 

@@ -9,12 +9,12 @@ import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {ErrorInterceptor} from './helpers/error.interceptor';
 
 
-
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './shared/directives/alert.component';
 import { AlertService } from './shared/services/alert.service';
+
 
 
 

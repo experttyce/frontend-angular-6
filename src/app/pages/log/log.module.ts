@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { LogRoutingModule } from './log-routing.module';
 import { RouterModule } from '@angular/router';
+import { JasperoAlertsModule } from '@jaspero/ng-alerts';
+
 
 
 
@@ -15,7 +17,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     LogRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    JasperoAlertsModule.forRoot()
  
   ],
   declarations: [

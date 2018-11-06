@@ -14,7 +14,7 @@
                 <h4 class="alert-heading">Well done!</h4>
                 <p>Has been successfully registered</p>
                 <hr>
-                <p class="mb-0">"Thanks for signing up! Please check your email to complete your registration."</p>
+                <p class="mb-0">"Thanks for signing up! Please check your email to complete your registration." {{message}} </p>
             </div>
 
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
