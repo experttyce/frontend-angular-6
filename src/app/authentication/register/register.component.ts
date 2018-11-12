@@ -1,4 +1,3 @@
-'use strict';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute,Params } from '@angular/router';
 import { User } from '../../models/users';

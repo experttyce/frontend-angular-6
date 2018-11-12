@@ -1,22 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { LayoutComponent } from './layout/layout.component';
+import { PageNotFoundComponent } from './page-not-found.component';
+
+
 
 const routes: Routes = [
-    { path: '', loadChildren: './layout/layout.module#LayoutModule', canActivate: [AuthGuard] },
-    { path: 'login', loadChildren: './pages/log/log.module#LogModule' },
-    { path: 'register', loadChildren: './pages/register/register.module#RegisterModule' },
-   // { path: 'error', loadChildren: './server-error/server-error.module#ServerErrorModule' },
-   // { path: 'access-denied', loadChildren: './access-denied/access-denied.module#AccessDeniedModule' },
-    //{ path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule' },
-    { path: '**', redirectTo: 'not-found' }
-];
-
-@NgModule({
-
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-    
-})
-export class AppRoutingModule {}
+{ path: '', loadChildren:  './authentication/authentication.module#AuthenticationModule'},
+{path: 'auth', loadChildren: './authentication/authentication.module#AuthenticationModule'},
+{ path: 'layout', loadChildren: './layout/layout.module#LayoutModule',canActivate: [AuthGuard] },
+{path: '**', component: PageNotFoundComponent}
+  ];
+  
+  @NgModule( {
+    imports: [
+      CommonModule,
+      RouterModule.forRoot( routes ),
+    ],
+    declarations: []
+  } )
+  export class AppRoutingModule {}
+  

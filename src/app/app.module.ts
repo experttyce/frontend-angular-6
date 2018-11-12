@@ -3,19 +3,20 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import {AuthGuard} from './shared/guards';
+import { AuthGuard} from './shared/guards';
 import { AuthenticationService, UserService } from './shared/services';
-import {JwtInterceptor} from './helpers/jwt.interceptor';
-import {ErrorInterceptor} from './helpers/error.interceptor';
-
+import { JwtInterceptor} from './helpers/jwt.interceptor';
+import { ErrorInterceptor} from './helpers/error.interceptor';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './shared/directives/alert.component';
 import { AlertService } from './shared/services/alert.service';
+import { LayoutModule } from './layout/layout.module';
 
-
+import { PageNotFoundComponent }  from './page-not-found.component';
 
 
 
@@ -24,15 +25,20 @@ import { AlertService } from './shared/services/alert.service';
 @NgModule( {
   declarations: [
     AppComponent,
-    AlertComponent
+    
+    AlertComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,    
+    AppRoutingModule,
+    RouterModule.forRoot([])
+ 
 
   ],
   providers: [

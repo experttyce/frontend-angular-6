@@ -8,10 +8,10 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 
 
-@Component({templateUrl: 'log.component.html',
+@Component({templateUrl: 'login.component.html',
 providers:[AuthenticationService]
 })
-export class LogComponent implements OnInit {
+export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
@@ -64,7 +64,7 @@ export class LogComponent implements OnInit {
            .pipe(first())
             .subscribe((data) => {
                 //alert('Te has logueado correctamente');
-                this.router.navigate(['/dashboard']);
+                this.router.navigate(['/layout']);
                  // console.log(data);
                 
                 },

@@ -1,30 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
-
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '/', redirectTo: 'login', pathMatch: 'prefix' },
-            { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
-            { path: 'list', loadChildren: './user/list.module#ListModule' },
-            //{ path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-            //{ path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-            //{ path: 'forms', loadChildren: './form/form.module#FormModule' },
-            //{ path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
-            //{ path: 'grid', loadChildren: './grid/grid.module#GridModule' },
-         //  { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' }
-         { path: 'layout', loadChildren: './layout.module#LayoutModule' },
-            //{ path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
-        ]    
-    }
-];
 
+
+{ path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule',canActivate: [AuthGuard]},
+{ path: 'list', loadChildren: './user/list.module#ListModule',canActivate: [AuthGuard] },
+
+
+            
+            ]    
+        }
+    ];
 @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
 export class LayoutRoutingModule {}
+  
