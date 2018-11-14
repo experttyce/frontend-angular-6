@@ -4,13 +4,13 @@
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" src="/src/assets//img//profile.jpg" />
+                        <img alt="image" class="rounded-circle" width="150" height="155" src="/src/assets//img//seko.jpeg" />
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold"> {{currentUser.user.name}} </span>
+                            <span class="block m-t-xs font-bold"> <h3> {{currentUser.user.name}}  </h3></span>
                             <span class="text-muted text-xs block">Art Director <b class="caret"></b></span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['user/detail']">Profile</a></li>
                             <li><a class="dropdown-item" href="contacts.html">Contacts</a></li>
                             <li><a class="dropdown-item" href="mailbox.html">Mailbox</a></li>
                             <li class="dropdown-divider"></li>
@@ -22,7 +22,7 @@
                     </div>
                 </li>
                 <li class="active">
-                    <a [routerLink]="['list']"><i class="fa fa-user"></i> <span class="nav-label">List Users</span></a>
+                    <a [routerLink]="['user/list']"><i class="fa fa-user"></i> <span class="nav-label">List Users</span></a>
                 </li>
                 <li>
                     <a [routerLink]="['dashboard']"><i class="fa fa-calculator"></i> <span class="nav-label">Calculator</span> </a>

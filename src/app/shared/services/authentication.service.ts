@@ -8,8 +8,8 @@ import { GLOBAL } from './global';
 @Injectable()
 export class AuthenticationService {
   public url: string;
- // public identity;
-  //public token;
+ public identity;
+  public token;
 
     constructor(private http: HttpClient, private route: ActivatedRoute,
         private router: Router,) {
@@ -39,7 +39,7 @@ export class AuthenticationService {
       
     }
 
-/*
+
     getIdentity(){
     let identity= JSON.parse(localStorage.getItem('currentUser'));
     if(identity != "undefined"){
@@ -58,7 +58,7 @@ export class AuthenticationService {
             this.token=null;
         }
         return this.token;
-    } */
+    } 
 
 
 }

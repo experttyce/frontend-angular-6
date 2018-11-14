@@ -27,7 +27,9 @@ import { PageNotFoundComponent }  from './page-not-found.component';
     AppComponent,
     
     AlertComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+
+    
 
   ],
   imports: [

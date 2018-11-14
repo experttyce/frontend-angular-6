@@ -1,0 +1,113 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="uk-container-center">
+        <h2 class="display-5">Profile Detail</h2>
+        <div class="uk-container-center">
+            <div class="row justify-content-center">
+
+
+                <div class="justify-content-lg-center">
+                    <div class="card" style="width: 15rem;">
+                        <img class="card-img-top" src="/src/assets/img/default-avatar.png" alt="Card image cap">
+
+                    </div>
+
+                    <div class="card" style="width: 15rem;">
+                        <div class="card-body">
+                            <h3 class="card-title"> {{currentUser.user.name}} </h3>
+                            <h5 class="card-title"> Member since </h5>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pushpin"></i> {{currentUser.user.created_at}} </span>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <br>
+                        <br>
+                        <h4 class="card-title">About me</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <h4><i class="fa fa-male"> Username: {{currentUser.user.name}}  </i> </h4>
+                        <h4><i class="fa fa-user-circle-o"> First name: {{currentUser.user.name}}  </i> </h4>
+                        <h4><i class="fa fa-user-plus"> Last name: {{currentUser.user.name}}  </i> </h4>
+                        <h4><i class="fa fa-phone">  Phone : 777-77-77  </i> </h4>
+                        <h4> <i class="fa fa-envelope-o"> Email:   {{currentUser.user.email}} </i> </h4>
+                        <br>
+
+                        <button type="button " class="btn btn-sm btn-info" data-toggle="modal" data-target="#exampleModal">Update</button>
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--  MODAL ACTUALIZAR-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel"> {{ title}} </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <form>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="firstName" type="text" class="form-control" name="firstName" placeholder="FirstName">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="lastName" type="text" class="form-control" name="lastName" placeholder="LastName">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
+                        <select class="form-control" id="companyName">    
+        
+                          
+                    <option>Company Name</option>
+                    <option>Seko SFO</option>
+                    <option>Seko LAX</option>
+                    <option>Seko SDS</option>
+                    <option>Seko Internacional</option>
+                  </select>
+
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn  btn-sm btn-success">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

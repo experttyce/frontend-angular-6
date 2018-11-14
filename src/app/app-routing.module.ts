@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 
 
 const routes: Routes = [
-{ path: '', loadChildren:  './authentication/authentication.module#AuthenticationModule'},
+ { path: '', loadChildren:  './authentication/authentication.module#AuthenticationModule'},
 {path: 'auth', loadChildren: './authentication/authentication.module#AuthenticationModule'},
 { path: 'layout', loadChildren: './layout/layout.module#LayoutModule',canActivate: [AuthGuard] },
 {path: '**', component: PageNotFoundComponent}

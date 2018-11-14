@@ -8,8 +8,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
-
-
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -19,8 +18,8 @@ import { RouterModule } from '@angular/router';
         LayoutRoutingModule
         
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent],
-    exports:[LayoutComponent, SidebarComponent, HeaderComponent],
+    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent],
+    exports:[LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent],
     bootstrap: [ LayoutComponent ]
 })
 export class LayoutModule {}

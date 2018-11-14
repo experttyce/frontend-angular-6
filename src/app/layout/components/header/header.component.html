@@ -111,12 +111,12 @@
 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                {{currentUser.user.name}} <span class="caret"></span>
+                {{currentUser.user.name}} <i class="fa fa-user"></i> <span class="caret"></span>
 
             </a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#">
+                    <a [routerLink]="['user/detail']">
                         <span class="glyphicon glyphicon-cog"></span> Mis datos
                     </a>
                 </li>
