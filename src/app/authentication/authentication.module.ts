@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './access/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ForgotComponent } from './forgot/forgot.component';
 
 
 
@@ -18,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
     AuthenticationRoutingModule,
     
   ],
-  declarations: [  LoginComponent, RegisterComponent],
+  declarations: [  LoginComponent, RegisterComponent, ForgotComponent],
   providers: [  ]
 })
 export class AuthenticationModule {}

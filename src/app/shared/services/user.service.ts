@@ -47,7 +47,16 @@ getUserList(){
   return this.http.get<User[]>(this.url+'users', { headers: reqHeader });
 }  
 
+
+
+updateUser(user_to_update){
+  let params= JSON.stringify(user_to_update);
+  let reqHeader = new HttpHeaders({ 
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))
+ });
+
+ return this.http.put(this.url+'update'+user_to_update._id, params, {headers:reqHeader})
+
 }
-
-
-  
+}

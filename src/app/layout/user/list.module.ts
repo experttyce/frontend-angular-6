@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { ListRoutingModule } from './list-routing.module';
 import { RouterModule } from '@angular/router';
-import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserDetailComponent } from './user-datail/user-detail.component';
 
 
@@ -21,7 +20,6 @@ import { UserDetailComponent } from './user-datail/user-detail.component';
   ],
   declarations: [
     ListComponent,
-    UserEditComponent,
     UserDetailComponent
   ]
 } )

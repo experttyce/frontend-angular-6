@@ -9,6 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { HomeComponent } from './home/home.component';
         LayoutRoutingModule
         
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent],
+    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent, CalculatorComponent],
     exports:[LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent],
     bootstrap: [ LayoutComponent ]
 })

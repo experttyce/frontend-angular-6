@@ -1,6 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="uk-container-center">
-        <h2 class="display-5">Profile Detail</h2>
+
+        <h3> <strong> Profile Detail </strong> </h3>
         <div class="uk-container-center">
             <div class="row justify-content-center">
 
@@ -65,18 +66,23 @@
             <div class="modal-body">
 
 
+                <!--    Form Group Actualizar -->
 
-                <form>
+
+                <form #userDetailForm="ngForm" (ngSubmit)="onSubmit()">
+                    <!--  Name  -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="firstName" type="text" class="form-control" name="firstName" placeholder="FirstName">
+                        <input id="name" type="text" name="name" #name="ngModel" [(ngModel)]="currentUser.user.name" class="form-control" required/>
                     </div>
+                    <span class="badge badge-pill badge-danger" *ngIf="!name.valid && name.touched">el nombre es obligatorio</span>
 
+                    <!--  LastName  -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="lastName" type="text" class="form-control" name="lastName" placeholder="LastName">
+                        <input id="lastName" type="text" class="form-control" name="lastName">
                     </div>
-
+                    <!--  CompaName  -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
                         <select class="form-control" id="companyName">    
@@ -90,15 +96,19 @@
                   </select>
 
                     </div>
-
+                    <!--  Email  -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        <input id="email" type="email" class="form-control" name="email" #email="ngModel" [(ngModel)]="currentUser.user.email" required/>
+
                     </div>
+                    <span class="badge badge-pill badge-danger" *ngIf="!email.valid && email.touched">el email es obligatorio</span>
+
+                    <!--  Password  -->
 
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                        <input id="password" type="password" class="form-control" name="password" [(ngModel)]="currentUser.user.password">
                     </div>
 
 
@@ -106,7 +116,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn  btn-sm btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn  btn-sm btn-success">Update</button>
+                <button type="submit" class="btn  btn-sm btn-success" [disabled]="!userDetailForm.form.valid">Guardar</button>
             </div>
         </div>
     </div>
