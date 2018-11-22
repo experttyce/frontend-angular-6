@@ -11,12 +11,14 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
-        LayoutRoutingModule
+        LayoutRoutingModule,
+        CollapseModule
         
     ],
     declarations: [LayoutComponent, SidebarComponent, HeaderComponent, HomeComponent, CalculatorComponent],

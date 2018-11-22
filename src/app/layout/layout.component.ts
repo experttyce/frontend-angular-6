@@ -1,4 +1,9 @@
+
+
+
+
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
     selector: 'app-layout',
@@ -9,13 +14,13 @@ export class LayoutComponent implements OnInit {
     
   //anio: number = new Date().getFullYear();
   test: Date = new Date();
-
+  isCollapsed = false;
     
     
 
     constructor() {}
 
-    ngOnInit() {}
-
-    
-}
+    ngOnInit() {
+      
+      }
+    }

@@ -12,9 +12,12 @@ export class HeaderComponent implements OnInit {
     
     currentUser: User;
     users: User[] = [];
+    isNavbarCollapsed=true;
+    isCollapsed = true;
 
     constructor(private authenticationService: AuthenticationService, private router: Router,private _route: ActivatedRoute) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        
     }
 
     ngOnInit() {

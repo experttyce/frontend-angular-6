@@ -20,7 +20,11 @@ import { PageNotFoundComponent }  from './page-not-found.component';
 
 
 
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { } from 'ngx-bootstrap';
 
 @NgModule( {
   declarations: [
@@ -39,7 +43,11 @@ import { PageNotFoundComponent }  from './page-not-found.component';
     ReactiveFormsModule,
     LayoutModule,    
     AppRoutingModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    CollapseModule.forRoot(),
+    BsDropdownModule.forRoot(),
+   TooltipModule.forRoot(),
+   ModalModule.forRoot()
  
 
   ],

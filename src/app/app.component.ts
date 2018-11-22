@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   test: Date = new Date();
   title = 'DashboardSeko';
+  isCollapsed = true;
 }

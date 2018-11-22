@@ -11,7 +11,7 @@ import { User } from '../../../models/users';
 export class SidebarComponent implements OnInit {
      
   currentUser: User;
-  
+  isCollapsed = false;
 
   constructor(private authenticationService: AuthenticationService,
     private _route: ActivatedRoute,
