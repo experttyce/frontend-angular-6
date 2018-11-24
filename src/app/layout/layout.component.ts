@@ -11,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-    
+  isCollapsed = false;
   //anio: number = new Date().getFullYear();
   test: Date = new Date();
-  isCollapsed = false;
+  
     
     
 
